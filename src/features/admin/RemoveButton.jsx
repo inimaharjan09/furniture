@@ -13,7 +13,7 @@ export default function RemoveButton({ id }) {
       await removeProduct({ id, token: user.token }).unwrap();
       toast.success('Removed Successfully');
     } catch (err) {
-      toast.error(err.data?.message || 'failed');
+      toast.error(err.data?.message || err.data);
       console.log(err);
     }
   };

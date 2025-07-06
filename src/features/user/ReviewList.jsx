@@ -24,7 +24,7 @@ export default function ReviewList({ product }) {
       }).unwrap();
       toast.success('Review deleted');
     } catch (err) {
-      toast.error('Error');
+      toast.error(err.data?.message || err.data);
     }
   };
 

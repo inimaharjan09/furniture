@@ -71,7 +71,7 @@ export default function ProductEditForm({ product }) {
             toast.success('Updated Successfully');
             nav(-1);
           } catch (err) {
-            toast.error(err.data?.message || 'failed');
+            toast.error(err.data?.message || err.data);
           }
         }}
         validationSchema={productSchema}

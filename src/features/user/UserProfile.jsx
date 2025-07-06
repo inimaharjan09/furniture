@@ -1,25 +1,71 @@
 import React from 'react';
-import { Link } from 'react-router';
-import sofaImage from '../assets/cover.jpg';
+import { useGetUserQuery, useUpdateUserMutation } from './userApi.js';
+import { Formik } from 'formik';
+import { Button, Input } from '@material-tailwind/react';
+import toast from 'react-hot-toast';
 
-export default function UserProfile() {
+export default function UserProfile({ user }) {
+  const { data, isLoading, error } = useGetUserQuery(user?.token);
+  const [updateUser, { isLoading: updateLoading }] = useUpdateUserMutation();
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
   return (
     <div className="font-poppins">
-      <div
-        className="relative h-[328px] bg-cover bg-center flex items-center justify-center text-black"
-        style={{ backgroundImage: `url(${sofaImage})` }}
-      >
-        <div className="text-center pt-8">
-          <h1 className="text-4xl font-bold">Shop</h1>
-          <div className="text-sm mt-5">
-            <Link to="/" className="hover:underline text-black">
-              Home
-            </Link>
-            &gt; <span className="text-gray-600">My Profile</span>
-          </div>
-        </div>
-      </div>
-      <main></main>
+      <main className="max-w-xl mx-auto p-5">
+        <h1 className="text-2xl font-bold py-5">Profile Update</h1>
+        <Formik
+          enableReinitialize
+          initialValues={{
+            username: data.username,
+            email: data.email,
+          }}
+          onSubmit={async (val) => {
+            try {
+              await updateUser({
+                token: user.token,
+                body: {
+                  username: val.username,
+                  email: val.email,
+                },
+              });
+              toast.success('User updated successfully');
+            } catch (err) {
+              toast.error(err.data?.message || err.data);
+            }
+          }}
+        >
+          {({ handleSubmit, handleChange, values }) => (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <Input
+                  label="Username"
+                  name="username"
+                  value={values.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <Input
+                  label="Email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <Button loading={updateLoading} type="submit">
+                Submit
+              </Button>
+            </form>
+          )}
+        </Formik>
+      </main>
     </div>
   );
 }

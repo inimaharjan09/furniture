@@ -26,7 +26,7 @@ export default function AddReview({ id }) {
               }).unwrap();
               toast.success('Review added successfully');
             } catch (err) {
-              toast.error(err.data?.message || 'failed');
+              toast.error(err.data?.message || err.data);
             }
           }}
         >

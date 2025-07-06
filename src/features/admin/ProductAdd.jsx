@@ -67,7 +67,7 @@ export default function ProductAdd() {
             toast.success('Added Successfully');
             nav(-1);
           } catch (err) {
-            toast.error(err.data?.message || 'failed');
+            toast.error(err.data?.message || err.data);
           }
         }}
         validationSchema={productSchema}

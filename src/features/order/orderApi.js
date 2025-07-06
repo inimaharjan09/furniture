@@ -1,31 +1,43 @@
-import { mainApi } from '../../app/mainApi';
+import { mainApi } from '../../app/mainApi.js';
 
-export const orderApi = mainApi.injectEndpoints({
+const orderApi = mainApi.injectEndpoints({
   endpoints: (builder) => ({
-    addOrder: builder.mutation({
-      query: ({ token, body }) => ({
-        url: '/orders',
-        method: 'POST',
-        body,
+    getUserOrder: builder.query({
+      query: (token) => ({
+        url: '/orders/users',
         headers: {
           Authorization: token,
         },
+        method: 'GET',
       }),
-      invalidatesTags: ['Order'],
+      providesTags: ['Orders'],
     }),
 
-    // Optional: Fetch user orders
-    getUserOrders: builder.query({
-      query: (token) => ({
-        url: '/orders/user',
+    getOrderDetail: builder.query({
+      query: (id) => ({
+        url: `/orders/${id}`,
         method: 'GET',
-        headers: {
-          Authorization: token,
-        },
       }),
-      providesTags: ['Order'],
+      providesTags: ['Orders'],
+    }),
+
+    addOrder: builder.mutation({
+      query: (query) => ({
+        url: '/orders',
+        body: query.body,
+        headers: {
+          Authorization: query.token,
+        },
+        method: 'POST',
+      }),
+      providesTags: ['Orders'],
     }),
   }),
 });
 
-export const { useAddOrderMutation, useGetUserOrdersQuery } = orderApi;
+export const {
+  useGetOrdersQuery,
+  useGetUserOrderQuery,
+  useAddOrderMutation,
+  useGetOrderDetailQuery,
+} = orderApi;

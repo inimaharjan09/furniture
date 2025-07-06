@@ -165,19 +165,10 @@ function ProductAddToCart({ product }) {
         </IconButton>
       </div>
       <br />
-      <div className="grid grid-cols-2 gap-2">
+      <div className="flex flex-row">
         <Button
           onClick={handleCart}
           disabled={!user || user?.role === 'Admin'}
-          size="sm"
-          className="bg-gray-600 hover:bg-red-600"
-        >
-          Buy Now
-        </Button>
-        <Button
-          onClick={handleCart}
-          disabled={!user || user?.role === 'Admin'}
-          size="sm"
           className="bg-gray-600 hover:bg-red-600"
         >
           Add To Cart

@@ -25,7 +25,7 @@ export default function Cart() {
 
   const handleCheckout = () => {
     if (!user) return toast.error('Please log in first');
-    if (carts.length === 0) return toast.error('Cart is empty');
+    if (carts.length === 0) return toast.error();
     navigate('/checkout');
   };
 

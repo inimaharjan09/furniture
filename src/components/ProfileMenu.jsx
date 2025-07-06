@@ -5,6 +5,7 @@ import {
   PowerIcon,
   DocumentChartBarIcon,
 } from '@heroicons/react/24/solid';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import {
   Button,
   Menu,
@@ -40,6 +41,7 @@ const userMenuItems = [
     label: 'Profile',
     icon: UserCircleIcon,
   },
+  { label: 'My orders', icon: <ShoppingBagIcon /> },
   {
     label: 'Sign Out',
     icon: PowerIcon,
@@ -87,6 +89,9 @@ export default function ProfileMenu({ user }) {
                     break;
                   case 'Cart':
                     nav('/cart');
+                    break;
+                  case 'My orders':
+                    nav('/myorder');
                     break;
 
                   case 'Profile':

@@ -8,14 +8,20 @@ import Order from './features/order/Order';
 import About from './features/about/About';
 import Login from './features/authentication/Login';
 import Register from './features/authentication/Register';
-import UserProfile from './features/user/UserProfile';
 import AdminPage from './features/admin/AdminPage';
 import ProductAdd from './features/admin/ProductAdd';
 import ProductEdit from './features/admin/ProductEdit';
 import Product from './features/product/Product';
 import Cart from './features/cart/Cart';
+import Checkout from './features/checkout/CheckOut';
+import UserRoute from './components/UserRoute';
+import ProfilePage from './features/user/ProfilePage';
+import { useSelector } from 'react-redux';
+import OrderDetails from './features/order/OrderDetails';
 
 export default function App() {
+  const { user } = useSelector((state) => state.userSlice);
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -33,10 +39,6 @@ export default function App() {
           path: '/register',
           element: <Register />,
         },
-        {
-          path: '/user/profile',
-          element: <UserProfile />,
-        },
 
         {
           path: '/products',
@@ -52,7 +54,7 @@ export default function App() {
         },
         {
           path: '/checkout',
-          element: <Order />,
+          element: <Checkout />,
         },
         {
           path: '/admin/dashboard',
@@ -62,7 +64,23 @@ export default function App() {
           path: 'admin/product/add',
           element: <ProductAdd />,
         },
-
+        {
+          element: <UserRoute />,
+          children: [
+            {
+              path: 'user/profile',
+              element: <ProfilePage />,
+            },
+          ],
+        },
+        {
+          path: '/myorder/:id',
+          element: <OrderDetails />,
+        },
+        {
+          path: '/myorder',
+          element: <Order />,
+        },
         {
           path: 'admin/product/edit/:id',
           element: <ProductEdit />,
@@ -70,10 +88,6 @@ export default function App() {
         {
           path: '/contact',
           element: <Contact />,
-        },
-        {
-          path: '/order',
-          element: <Order />,
         },
         {
           path: '/about',

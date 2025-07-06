@@ -50,7 +50,7 @@ export default function Login() {
                 toast.success('Login Successful');
                 nav(-1);
               } catch (err) {
-                toast.error(err.data?.message || 'failed');
+                toast.error(err.data?.message || err.data);
               }
             }}
           >

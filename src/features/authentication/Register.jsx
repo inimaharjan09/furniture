@@ -48,7 +48,7 @@ export default function Register() {
                 toast.success('Successfully registered');
                 nav('/login');
               } catch (err) {
-                toast.error(err.data?.message || 'failed');
+                toast.error(err.data?.message || err.data);
               }
             }}
           >
