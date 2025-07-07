@@ -18,6 +18,7 @@ import ProfilePage from './features/user/ProfilePage';
 import { useSelector } from 'react-redux';
 import OrderDetail from './features/order/OrderDetail';
 import Checkout from './features/checkout/Checkout';
+import Wishlist from './features/wishlist/Wishlist';
 
 export default function App() {
   const { user } = useSelector((state) => state.userSlice);
@@ -55,6 +56,10 @@ export default function App() {
         {
           path: '/checkout',
           element: <Checkout />,
+        },
+        {
+          path: '/wishlist',
+          element: <Wishlist />,
         },
         {
           path: '/admin/dashboard',

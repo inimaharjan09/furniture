@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaRegUser, FaBars, FaTimes } from 'react-icons/fa';
-import { CiSearch, CiHeart } from 'react-icons/ci';
+import { CiSearch } from 'react-icons/ci';
 import { IoCartOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import ProfileMenu from './ProfileMenu';
 import { Button } from '@material-tailwind/react';
+import { selectWishListItems } from '../features/wishlist/wishlistSlice';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.userSlice);
   const { carts } = useSelector((state) => state.cartSlice);
   const nav = useNavigate();
+  // adjust path if needed
+
+  const wishlistItems = useSelector(selectWishListItems);
 
   return (
     <div className="px-6 py-4 shadow-md w-full bg-white fixed z-50 top-0">
@@ -54,9 +59,16 @@ export default function Header() {
           <Link to="/search">
             <CiSearch size={24} />
           </Link>
-          <Link to="/wishlist">
-            <CiHeart size={26} />
-          </Link>
+          {user && (
+            <Link to="/wishlist" className="relative">
+              <FavoriteBorder sx={{ fontSize: 26 }} />
+              {wishlistItems?.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+                  {wishlistItems.length}
+                </span>
+              )}
+            </Link>
+          )}
 
           {user && (
             <Link to="/cart" className="relative hover:text-red-500 transition">
