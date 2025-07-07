@@ -3,7 +3,7 @@ import {
   getUserFromLocal,
   removeUserFromLocal,
   setUserToLocal,
-} from '../local/local';
+} from '../local/local.js';
 
 export const userSlice = createSlice({
   name: 'userSlice',

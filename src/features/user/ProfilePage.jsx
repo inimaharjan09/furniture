@@ -7,9 +7,11 @@ export default function ProfilePage() {
   const { user } = useSelector((state) => state.userSlice);
 
   return (
-    <div className="p-5 grid grid-cols-3 gap-5">
-      <UserProfile user={user} />
-      <Order user={user} />
+    <div className="font-poppins">
+      <div className="flex flex-col items-center mt-8 p-5">
+        <UserProfile user={user} />
+        <Order user={user} />
+      </div>
     </div>
   );
 }

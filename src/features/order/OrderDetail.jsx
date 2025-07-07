@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-tailwind/react';
 import { baseUrl } from '../../app/mainApi.js';
-export default function OrderDetails() {
+export default function OrderDetail() {
   const { id } = useParams();
   const { isLoading, error, data } = useGetOrderDetailQuery(id);
 

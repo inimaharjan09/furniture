@@ -13,11 +13,11 @@ import ProductAdd from './features/admin/ProductAdd';
 import ProductEdit from './features/admin/ProductEdit';
 import Product from './features/product/Product';
 import Cart from './features/cart/Cart';
-import Checkout from './features/checkout/CheckOut';
 import UserRoute from './components/UserRoute';
 import ProfilePage from './features/user/ProfilePage';
 import { useSelector } from 'react-redux';
-import OrderDetails from './features/order/OrderDetails';
+import OrderDetail from './features/order/OrderDetail';
+import Checkout from './features/checkout/Checkout';
 
 export default function App() {
   const { user } = useSelector((state) => state.userSlice);
@@ -74,12 +74,12 @@ export default function App() {
           ],
         },
         {
-          path: '/myorder/:id',
-          element: <OrderDetails />,
+          path: '/myorders/:id',
+          element: <OrderDetail />,
         },
         {
-          path: '/myorder',
-          element: <Order />,
+          path: '/myorders',
+          element: <Order user={user} />,
         },
         {
           path: 'admin/product/edit/:id',

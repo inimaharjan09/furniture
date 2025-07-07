@@ -5,7 +5,7 @@ import { Button, Input } from '@material-tailwind/react';
 import toast from 'react-hot-toast';
 
 export default function UserProfile({ user }) {
-  const { data, isLoading, error } = useGetUserQuery(user?.token);
+  const { data, isLoading, error } = useGetUserQuery(user.token);
   const [updateUser, { isLoading: updateLoading }] = useUpdateUserMutation();
 
   if (isLoading) {
@@ -18,8 +18,8 @@ export default function UserProfile({ user }) {
 
   return (
     <div className="font-poppins">
-      <main className="max-w-xl mx-auto p-5">
-        <h1 className="text-2xl font-bold py-5">Profile Update</h1>
+      <main className="w-full mx-auto">
+        <h1 className="text-2xl font-bold py-5 text-center">Profile Update</h1>
         <Formik
           enableReinitialize
           initialValues={{
@@ -42,8 +42,8 @@ export default function UserProfile({ user }) {
           }}
         >
           {({ handleSubmit, handleChange, values }) => (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
+            <form onSubmit={handleSubmit} className="space-x-20 space-y-5">
+              <div className="w-full">
                 <Input
                   label="Username"
                   name="username"
@@ -51,7 +51,7 @@ export default function UserProfile({ user }) {
                   onChange={handleChange}
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <Input
                   label="Email"
                   name="email"

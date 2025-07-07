@@ -36,7 +36,6 @@ const orderApi = mainApi.injectEndpoints({
 });
 
 export const {
-  useGetOrdersQuery,
   useGetUserOrderQuery,
   useAddOrderMutation,
   useGetOrderDetailQuery,
