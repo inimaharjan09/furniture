@@ -12,7 +12,7 @@ export default function Order({ user }) {
 
   return (
     <div className="font-poppins">
-      <div className="col-span-2 mt-20">
+      <div className="col-span-2 mt-20 px-4">
         <h1 className="text-center text-2xl font-bold mb-5">Order History</h1>
         <Card className="h-full w-full overflow-scroll">
           <table className="w-full min-w-max table-auto text-left">
