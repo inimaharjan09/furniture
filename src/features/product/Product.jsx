@@ -29,11 +29,9 @@ export default function Product() {
 
   const { user } = useSelector((state) => state.userSlice);
   const wishlistItems = useSelector(selectWishListItems);
-
   const { data, isLoading, error } = useGetProductQuery(id);
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColorIndex, setSelectedColorIndex] = useState(-1);
-
   const isWishlisted = wishlistItems.some((item) => item._id === id);
 
   const handleAddRemoveFromWishlist = (e) => {
@@ -69,7 +67,6 @@ export default function Product() {
       </div>
 
       <div className="pt-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-1">
-        {/* Left Image Section */}
         <div className="space-y-5">
           <img
             src={`${baseUrl}${data.image}`}
@@ -88,7 +85,6 @@ export default function Product() {
           </div>
         </div>
 
-        {/* Right Details Section */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <Typography variant="h4">{data.name}</Typography>
@@ -114,7 +110,6 @@ export default function Product() {
             {data.description}
           </Typography>
 
-          {/* Sizes */}
           <div className="flex items-center gap-2">
             <Typography>Size:</Typography>
             {['S', 'M', 'L', 'XL'].map((size) => (
@@ -132,7 +127,6 @@ export default function Product() {
             ))}
           </div>
 
-          {/* Color Picker */}
           <div className="flex items-center space-x-2">
             <Typography>Color:</Typography>
             {['bg-yellow-500', 'bg-black', 'bg-purple-700'].map(
@@ -150,7 +144,6 @@ export default function Product() {
             )}
           </div>
 
-          {/* Add to Cart */}
           <ProductAddToCart
             product={data}
             selectedSize={selectedSize}

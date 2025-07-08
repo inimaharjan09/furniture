@@ -8,15 +8,11 @@ import { FilterList, ViewModule, ViewList } from '@mui/icons-material';
 export default function ProductList() {
   const nav = useNavigate();
   const { isLoading, error, data } = useGetProductsQuery();
-
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
-
   if (isLoading) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
-
   const totalPages = Math.ceil(data.length / productsPerPage);
-
   const currentProducts = data.slice(
     (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
@@ -75,7 +71,6 @@ export default function ProductList() {
         </div>
       </div>
 
-      {/* Products Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 px-6 sm:px-10 py-10">
         {currentProducts.map(({ _id, name, price, image }) => (
           <div
@@ -96,7 +91,6 @@ export default function ProductList() {
         ))}
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center items-center gap-2 py-4">
         <button
           onClick={() => handlePageClick(currentPage - 1)}

@@ -1,5 +1,3 @@
-// src/features/wishlist/wishlistSlice.js
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const wishlistSlice = createSlice({
@@ -24,7 +22,6 @@ const wishlistSlice = createSlice({
   },
 });
 
-// ✅ Export actions
 export const { addToWishlist, removeFromWishlist } = wishlistSlice.actions;
 export const selectWishListItems = (state) => state.wishlist.items;
 export default wishlistSlice;

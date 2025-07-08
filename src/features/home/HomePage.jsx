@@ -14,7 +14,6 @@ export default function HomePage() {
   console.log(data);
   return (
     <div className="font-poppins text-gray-900">
-      {/* Hero Section */}
       <section className="pt-28 md:pt-10 flex flex-col md:flex-row items-center justify-between gap-10 bg-yellow-200 w-full min-h-[600px] px-6 md:px-20">
         <div className="text-center md:text-left">
           <h1 className="text-4xl sm:text-5xl font-medium pb-6">
@@ -31,7 +30,6 @@ export default function HomePage() {
         />
       </section>
 
-      {/* Product Section */}
       <section className="flex flex-col md:flex-row justify-evenly pt-14 pb-20 bg-[#d8b8b8] gap-10 md:gap-0">
         <div className="flex flex-col gap-4 items-center">
           <img
@@ -62,7 +60,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Top Picks Section */}
       <section className="flex flex-col gap-10 py-14 px-6 md:px-20">
         <div className="text-center">
           <h1 className="text-3xl font-semibold">Top Picks For You</h1>
@@ -99,7 +96,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* New Arrival Section */}
       <section className="flex flex-col md:flex-row items-center justify-between bg-yellow-100 py-16 px-6 md:px-20 gap-10">
         <img
           src={img4}
@@ -123,7 +119,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Instagram CTA */}
       <section className="flex flex-col items-center gap-2 py-36 bg-[#f5eaea]">
         <h1 className="text-4xl font-bold">Our Instagram</h1>
         <p className="text-sm">Follow our store on Instagram</p>

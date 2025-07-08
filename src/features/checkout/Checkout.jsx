@@ -224,7 +224,6 @@ export default function Checkout() {
               <tbody>
                 {carts.map((item, index) => (
                   <tr key={index} className="border-t hover:bg-yellow-50/40">
-                    {/* Product */}
                     <td className="py-2 px-4">
                       <p className="font-medium">{item.name}</p>
                       <p className="text-1xl text-gray-500">
@@ -232,7 +231,6 @@ export default function Checkout() {
                       </p>
                     </td>
 
-                    {/* Subtotal */}
                     <td className="py-2 px-4 text-right font-semibold text-gray-700">
                       Rs {item.qty * item.price}
                     </td>
@@ -242,12 +240,10 @@ export default function Checkout() {
             </table>
           </div>
 
-          {/* Total */}
           <div className="font-semibold text-sm text-center mt-4">
             Total ({carts.length} items): Rs {totalAmount}
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             className="text-sm mt-4 py-3 px-4 border font-medium border-black rounded-lg w-full cursor-pointer hover:bg-black hover:text-white transition"

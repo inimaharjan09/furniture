@@ -19,7 +19,6 @@ export default function Register() {
 
   return (
     <div className="font-poppins">
-      {/* Header/Banner */}
       <div
         className="relative h-[328px] bg-cover bg-center flex items-center justify-center text-black"
         style={{ backgroundImage: `url(${sofaImage})` }}
@@ -35,7 +34,6 @@ export default function Register() {
         </div>
       </div>
 
-      {/* Register Form */}
       <div className=" flex items-center justify-center px-4">
         <div className="bg-white p-8 rounded-xl w-full max-w-sm">
           <h2 className="text-2xl font-semibold text-center mb-6">Sign Up</h2>
@@ -94,7 +92,6 @@ export default function Register() {
             )}
           </Formik>
 
-          {/* Already have account */}
           <Typography className="text-center text-sm mt-4">
             Already have an account?{' '}
             <Button

@@ -12,10 +12,8 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Wishlist() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const wishlistItems = useSelector(selectWishListItems);
   const { carts } = useSelector((state) => state.cartSlice);
-
   const handleRemoveFromWishlist = (item) => {
     dispatch(removeFromWishlist(item));
   };

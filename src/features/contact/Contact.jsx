@@ -18,7 +18,6 @@ export default function Contact() {
 
   return (
     <div className="font-poppins">
-      {/* Banner */}
       <div
         className="relative h-82 bg-cover bg-center flex items-center justify-center text-black"
         style={{ backgroundImage: `url(${sofaImage})` }}
@@ -34,7 +33,6 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Main Content */}
       <main className="flex flex-col gap-20 pt-10 pb-10 text-gray-700">
         <section className="flex flex-col gap-2 items-center">
           <h1 className="font-semibold text-2xl">Get In Touch With Us</h1>
@@ -46,7 +44,6 @@ export default function Contact() {
         </section>
 
         <section className="flex justify-evenly flex-col-reverse gap-10 lg:gap-0 md:flex-row lg:flex-row px-5">
-          {/* Contact Info */}
           <div className="flex flex-col gap-4">
             <div className="flex gap-5 items-start">
               <MdLocationOn className="w-5 h-5 text-black" />
@@ -75,7 +72,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-5"

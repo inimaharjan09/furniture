@@ -14,8 +14,6 @@ export default function Header() {
   const { user } = useSelector((state) => state.userSlice);
   const { carts } = useSelector((state) => state.cartSlice);
   const nav = useNavigate();
-  // adjust path if needed
-
   const wishlistItems = useSelector(selectWishListItems);
 
   return (

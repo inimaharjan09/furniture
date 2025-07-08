@@ -135,7 +135,6 @@ export default function ProductEditForm({ product }) {
               )}
             </div>
 
-            {/* Size Field */}
             <div>
               <Select
                 value={values.size}
@@ -152,7 +151,6 @@ export default function ProductEditForm({ product }) {
               )}
             </div>
 
-            {/* Color Field */}
             <div>
               <Select
                 value={values.color}

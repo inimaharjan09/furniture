@@ -33,12 +33,12 @@ export default function App() {
           element: <HomePage />,
         },
         {
-          path: '/login',
-          element: <Login />,
+          path: 'login',
+          element: user ? <Navigate to="/" /> : <Login />,
         },
         {
-          path: '/register',
-          element: <Register />,
+          path: 'register',
+          element: user ? <Navigate to="/" /> : <Register />,
         },
 
         {
